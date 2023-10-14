@@ -3,6 +3,8 @@ import Create from "./Create";
 import Update from "./Update";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { FaTrash, FaEdit } from "react-icons/fa";
+import '../App.css' ;
 
 function Home() {
   const [task, setTask] = useState([]);
@@ -29,17 +31,38 @@ function Home() {
         console.error("Error deleting task: ", error);
       });
   };
+
+  const handleToggleCompleted = (id) => {
+    axios
+      .put(`http://localhost:3000/api/${id}`, {
+        completed: !task.find((t) => t._id === id).completed,
+      })
+      .then((response) => {
+        console.log("Task updated successfully: ", response.data);
+        setTask((tasks) =>
+          tasks.map((task) =>
+            task._id === id ? { ...task, completed: !task.completed } : task
+          )
+        );
+      });
+  };
   return (
-    <div>
-      <h2>MY TASKS</h2>
+    <div className="TodoWrapper">
+      <h1>Get Things Done !</h1>
       <Create />
 
       <ul>
         {task.map((task) => (
-          <div key={task._id}>
-            {task.title}
-            <button onClick={() => setSelectedTask(task)}>Update</button>
-            <button onClick={() => handleDelete(task._id)}> Delete</button>
+          <div key={task._id} className="Todo">
+
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => handleToggleCompleted(task._id)}
+            />
+            <p className={task.completed ? 'completed' : 'incompleted'}>{task.title}</p>
+            <FaEdit onClick={() => setSelectedTask(task)} className="edit-icon" />
+            <FaTrash onClick={() => handleDelete(task._id)} className="delete-icon"/>
           </div>
         ))}
       </ul>

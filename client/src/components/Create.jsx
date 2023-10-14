@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import '../App.css' ; 
 
 function Create() {
 
@@ -23,13 +24,16 @@ function Create() {
    
   }
   return (
-    <div>
-      < input type="text"
-      value= {addTask}
+    <form onSubmit={newTask} className="TodoForm">
+    <input
+      type="text"
+      value={addTask}
       onChange={handleInputChange}
-      placeholder="Add new task.."/>
-      <button type="button" onClick={newTask}> Add</button>
-    </div>
+      className="todo-input"
+      placeholder="Add new task..."
+    />
+    <button type="submit" className="todo-btn">Add Task</button>
+  </form>
   );
 }
 
