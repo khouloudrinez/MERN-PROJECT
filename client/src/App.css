@@ -1,6 +1,4 @@
-/* custom.css */
 
-/* Global Styles */
 body {
   background: #8758ff;
   font-family: 'Poppins', sans-serif;
@@ -9,12 +7,11 @@ body {
   box-sizing: border-box;
 }
 
-/* App Styles */
+
 .App {
   text-align: center;
 }
 
-/* Home Styles (TodoWrapper) */
 .TodoWrapper {
  margin-left: 300px;
  margin-right: 300px;
@@ -28,7 +25,6 @@ body {
 
 }
 
-/* TodoForm Styles */
 .TodoForm {
   width: 100%;
   margin-bottom: 1rem;
@@ -57,7 +53,6 @@ body {
   cursor: pointer;
 }
 
-/* Todo Styles */
 .Todo {
   display: flex;
   justify-content: space-between;
@@ -79,9 +74,36 @@ body {
   cursor: pointer;
 }
 
-/* Header Styles */
 .header {
   color: #fff;
   margin-bottom: 0.5rem;
   font-size: 1.75rem;
 }
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px); /* Adjust this value as needed */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #353578;
+  color: #fff;
+}
+
+.logout-button {
+  background: #8758ff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+

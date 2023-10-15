@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import '../App.css' ;
-
 function Home() {
   const [task, setTask] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
