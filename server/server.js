@@ -2,17 +2,13 @@ const express = require ('express') ;
 const cors = require ('cors') ;
 require('dotenv').config();
 
-const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = process.env; 
-
-
 const connectDB = require('./config/db'); 
-
-// const Todo= require('./models/todo')
 const app= express() ;
 
 //routes
  const todo = require('./routes/todo');
+ const user= require('./routes/user')
+ 
 
 // connect database
 connectDB();
@@ -21,6 +17,7 @@ app.use(express.json()) ;
 app.use(cors());
 
 app.use('/api',todo);
+app.use('/api/user',user);
 
 // app.get("/", (req, res) => res.send("Server running"));
 

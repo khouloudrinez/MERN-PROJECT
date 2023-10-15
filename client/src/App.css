@@ -96,14 +96,21 @@ body {
   color: #fff;
 }
 
+
 .logout-button {
   background: #8758ff;
   color: #fff;
-  border: none;
+  border: 1px solid;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 5px;
-  margin-right: 1rem;
-}
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  transition: background 0.3s ease; 
 
+  &:hover {
+    background: #6745ca; 
+  }
+}
 

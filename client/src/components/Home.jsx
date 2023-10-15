@@ -5,9 +5,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import '../App.css' ;
+import { useNavigate } from 'react-router-dom';
 function Home() {
   const [task, setTask] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     axios.get('http://localhost:3000/api')
@@ -44,9 +46,21 @@ function Home() {
           )
         );
       });
+  }; 
+  const handleLogout = () => {
+    // Clear any authentication token or user session data here
+    // For example, you can remove the token from local storage
+    localStorage.removeItem('token');
+    // Navigate the user back to the login page
+    navigate('/login');
   };
+  
+     
   return (
-    <div className="TodoWrapper">
+    <div className="TodoWrapper"> 
+    <button onClick={handleLogout} className="logout-button">
+    Logout
+  </button>
       <h1>Get Things Done !</h1>
       <Create />
 
